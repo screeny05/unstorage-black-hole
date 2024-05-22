@@ -1,6 +1,6 @@
 {
   "name": "unstorage-driver-black-hole",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Black hole driver for unstorage",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
