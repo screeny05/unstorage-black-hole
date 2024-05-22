@@ -1,12 +1,21 @@
 {
   "name": "unstorage-driver-black-hole",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Black hole driver for unstorage",
-  "main": "./dist/index.js",
+  "sideEffects": false,
+  "type": "module",
+  "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "scripts": {
-    "build": "tsup-node",
+    "build": "unbuild --sourcemap",
     "prepublishOnly": "tsc && npm run build",
     "test": "vitest"
   },
@@ -14,10 +23,13 @@
   "homepage": "https://github.com/screeny05/unstorage-black-hole",
   "license": "MIT",
   "devDependencies": {
-    "tsup": "^8.0.2",
     "typescript": "^5.4.5",
+    "unbuild": "^2.0.0",
     "unstorage": "^1.10.2",
     "vitest": "^1.6.0"
+  },
+  "peerDependencies": {
+    "unstorage": "1.x"
   },
   "keywords": [
     "unstorage",
